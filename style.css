@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap');
+
+:root {
+  --bg-color: #e0e5ec;
+  --text-color: #2d3436;
+  --clock-bg: rgba(255, 255, 255, 0.25);
+  --clock-border: rgba(255, 255, 255, 0.5);
+  --shadow-light: rgba(255, 255, 255, 0.8);
+  --shadow-dark: rgba(163, 177, 198, 0.6);
+  --accent-color: #6c5ce7;
+  --button-bg: #dfe6e9;
+  --button-text: #2d3436;
+}
+
+body.dark {
+  --bg-color: #0f0c29;
+  --text-color: #dfe6e9;
+  --clock-bg: rgba(0, 0, 0, 0.3);
+  --clock-border: rgba(255, 255, 255, 0.1);
+  --shadow-light: rgba(255, 255, 255, 0.05);
+  --shadow-dark: rgba(0, 0, 0, 0.5);
+  --accent-color: #00cec9;
+  --button-bg: #2d3436;
+  --button-text: #dfe6e9;
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.4s ease;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+.clock-container {
+  position: relative;
+  padding: 3rem 6rem;
+  border-radius: 30px;
+  background: var(--clock-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--clock-border);
+  box-shadow: 
+    20px 20px 60px var(--shadow-dark), 
+    -20px -20px 60px var(--shadow-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+.clock {
+  font-size: 6rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(to bottom right, var(--text-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 
+    5px 5px 15px var(--shadow-dark), 
+    -5px -5px 15px var(--shadow-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 20px var(--shadow-dark), 
+    -8px -8px 20px var(--shadow-light);
+}
+
+.button:active {
+  transform: translateY(1px);
+  box-shadow: 
+    inset 5px 5px 10px var(--shadow-dark), 
+    inset -5px -5px 10px var(--shadow-light);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (max-width: 600px) {
+  .clock-container {
+    padding: 2rem 3rem;
+  }
+  .clock {
+    font-size: 3.5rem;
+  }
+}
