@@ -1,23 +1,24 @@
-let clock=document.querySelector('.clock');
-let body=document.querySelector('body');
+const clock = document.querySelector('.clock');
+const body = document.querySelector('body');
+const themeButton = document.querySelector('.button');
+
 function updateTime() {
-    let now=new Date();
-    let h=now.getHours();
-    let min=now.getMinutes();
-    let s=now.getSeconds();
+    const now = new Date();
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
 
-    hours=h<10?'0'+h:h;
-    min=min<10?'0'+min:min;
-    s=s<10?'0'+s:s;
+    h = h < 10 ? '0' + h : h;
+    m = m < 10 ? '0' + m : m;
+    s = s < 10 ? '0' + s : s;
 
-    clock.innerHTML = `${h}:${min}:${s}`;
+    clock.innerText = `${h}:${m}:${s}`;
+
     setTimeout(updateTime, 1000);
 }
+
 updateTime();
 
-
-
-let buttton=document.querySelector(".button");
-        buttton.addEventListener("click",function(){
-            body.classList.toggle("dark")
-        })
+themeButton.addEventListener('click', () => {
+    body.classList.toggle('dark');
+});
